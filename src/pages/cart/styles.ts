@@ -105,13 +105,10 @@ export const Resume = styled.div`
     font-weight: 600;
     font-size: 20px;
     line-height: 150%;
-    /* identical to box height, or 30px */
 
     display: flex;
     align-items: center;
     text-transform: uppercase;
-
-    /* Textos Dark / Inputs & Icons */
 
     color: #41414d;
     margin-bottom: 29px;
@@ -170,6 +167,11 @@ export const Resume = styled.div`
     height: 44px;
     color: #f5f5fa;
     border: none;
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
   }
 
   > .first-link {
@@ -185,6 +187,55 @@ export const Resume = styled.div`
     font-weight: 500;
     font-size: 14px;
     line-height: 150%;
+
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+
     color: #737380;
+  }
+`;
+
+export const CheckoutContainer = styled.div`
+  max-width: 600px;
+  min-height: 300px;
+  padding: 36px;
+  border-radius: 8px;
+  background: var(--white);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  p {
+    margin: 24px 0 24px;
+  }
+
+  button {
+    mix-blend-mode: multiply;
+    border-radius: 4px;
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    color: #f5f5fa;
+    border: none;
+    transition: filter 0.2s;
+    margin: 0 auto;
+    margin-top: auto;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+
+    background: #51b853;
+    border: 2px solid #51b853;
   }
 `;

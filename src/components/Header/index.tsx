@@ -1,6 +1,13 @@
 import React from "react";
 
-import { Container, Logo, SearchContainer, BagContainer } from "./styles";
+import {
+  Container,
+  Logo,
+  SearchContainer,
+  BagContainer,
+  SearchContent,
+  ResultsContent,
+} from "./styles";
 import SvgComponent from "../SvgComponent";
 import Link from "next/link";
 import { useCart } from "../../hooks/cart";
@@ -15,15 +22,17 @@ import { IProduct } from "../../dtos";
 import { useEffect } from "react";
 import Loader from "react-loader-spinner";
 import { useRouter } from "next/dist/client/router";
+import ClickAwayListener from "react-click-away-listener";
 
 export function Header() {
   const { quantityCart } = useCart();
   const [value, setValue] = useState("");
+  const [searchProducts, setSearchProducts] = useState([] as IProduct[]);
   const [loading, setLoading] = useState(false);
-  const { setProducts, setCountProducts } = useProducts();
+  // const { setProducts, setCountProducts } = useProducts();
   const { refetch } = useGetAllProductsByName(value);
-  const { refetch: refetchAll } = useGetAllProductsByPage(1, 12, "all", "", "");
-  const router = useRouter();
+  // const { refetch: refetchAll } = useGetAllProductsByPage(1, 12, "all", "", "");
+  // const router = useRouter();
 
   const getProducts = async () => {
     setLoading(true);
@@ -40,8 +49,7 @@ export function Header() {
         }
       );
 
-      setProducts(newDataConvertedPrice);
-      setCountProducts(data._allProductsMeta.count);
+      setSearchProducts(newDataConvertedPrice);
     } catch (err) {
     } finally {
       setLoading(false);
@@ -58,8 +66,6 @@ export function Header() {
       return () => {
         clearTimeout(timer);
       };
-    } else {
-      refetchAll();
     }
   }, [value]);
 
@@ -70,17 +76,53 @@ export function Header() {
           <Logo>capputeeno</Logo>
         </Link>
         <div>
-          <SearchContainer onClick={() => router.push("/")}>
-            <input
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              placeholder="Procurando por algo específico?"
-              type="text"
-            />
-            {loading ? (
-              <Loader type="Puff" color="#737380" height={24} width={24} />
-            ) : (
-              <SvgComponent type="lupa" />
+          <SearchContainer>
+            <SearchContent>
+              <input
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                placeholder="Procurando por algo específico?"
+                type="text"
+              />
+              {loading ? (
+                <Loader type="Puff" color="#737380" height={24} width={24} />
+              ) : (
+                <SvgComponent type="lupa" />
+              )}
+            </SearchContent>
+            {searchProducts.length > 0 && value && (
+              <ClickAwayListener
+                onClickAway={() => {
+                  setValue("");
+                }}
+              >
+                <ResultsContent>
+                  {searchProducts.map((product) => (
+                    <Link key={product.id} href={`/product/${product.id}`}>
+                      <div onClick={() => setSearchProducts([])}>
+                        <img
+                          src={product.image_url}
+                          alt={"Imagem" + product.name}
+                        />
+                        <p>{product.name}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </ResultsContent>
+              </ClickAwayListener>
+            )}
+            {searchProducts.length === 0 && value && !loading && (
+              <ClickAwayListener
+                onClickAway={() => {
+                  setValue("");
+                }}
+              >
+                <ResultsContent>
+                  <div>
+                    <p>Nenhum produto encontrado com este nome</p>
+                  </div>
+                </ResultsContent>
+              </ClickAwayListener>
             )}
           </SearchContainer>
           <Link href="/cart">

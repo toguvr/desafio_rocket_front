@@ -147,6 +147,12 @@ export const ItemContainer = styled.div`
       padding: 10px;
       color: #f5f5fa;
 
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+
       @media (max-width: 768px) {
         margin-top: 24px;
       }

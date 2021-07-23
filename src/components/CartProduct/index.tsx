@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 
-import { Container } from "./styles";
+import { AlertContainer, Container } from "./styles";
 import Image from "next/image";
 import Link from "next/link";
 import SvgComponent from "../SvgComponent";
 import { convertMoney } from "../../utils/money";
 import { useCart } from "../../hooks/cart";
+
+import { Dialog } from "../Dialog";
+import ClickAwayListener from "react-click-away-listener";
 
 interface ProductCardProps {
   imageUrl: string;
@@ -24,9 +27,27 @@ export function CartProduct({
   price,
   quantity,
 }: ProductCardProps) {
+  const [openDialog, setDialog] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState("");
   const { removeFromCart } = useCart();
+
+  const deleteItem = useCallback(() => {
+    removeFromCart(itemToDelete);
+    setDialog(false);
+  }, [itemToDelete]);
+
   return (
     <Container>
+      <Dialog open={openDialog}>
+        <AlertContainer>
+          <h2>Tem certeza que deseja excluir?</h2>
+          <p>Ao continuar o item será retirado do carrinho de compras.</p>
+          <div>
+            <button onClick={() => setDialog(false)}>Cancelar</button>
+            <button onClick={deleteItem}>Continuar</button>
+          </div>
+        </AlertContainer>
+      </Dialog>
       <div className="image-detail">
         <Image
           layout="responsive"
@@ -42,7 +63,10 @@ export function CartProduct({
             <p>{name}</p>
           </Link>
           <SvgComponent
-            onClick={() => removeFromCart(id)}
+            onClick={() => {
+              setDialog(true);
+              setItemToDelete(id);
+            }}
             type="lixo"
             cursor="pointer"
           />

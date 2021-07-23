@@ -131,3 +131,59 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const AlertContainer = styled.div`
+  max-width: 600px;
+  min-height: 300px;
+  padding: 36px;
+  border-radius: 8px;
+  background: var(--white);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  p {
+    margin: 24px 0 24px;
+  }
+
+  div {
+    margin-top: auto;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-evenly;
+
+    button {
+      mix-blend-mode: multiply;
+      border-radius: 4px;
+      font-family: Saira;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+      width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      color: #f5f5fa;
+      border: none;
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+
+      :first-child {
+        background: transparent;
+        border: 2px solid var(--gray-300);
+        color: var(--gray-300);
+      }
+
+      :last-child {
+        background: var(--red);
+        border: 2px solid var(--red);
+      }
+    }
+  }
+`;

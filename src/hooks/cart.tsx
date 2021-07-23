@@ -20,12 +20,13 @@ interface CartContext {
   increment(id: string): void;
   decrement(id: string): void;
   removeFromCart(id: string): void;
+  cleanCart(): void;
 }
 
 const CartContext = createContext<CartContext | null>(null);
 
 const CartProvider: React.FC = ({ children }) => {
-  const [products, setProducts] = useState<IProduct[]>([]);
+  const [products, setProducts] = useState<IProductCart[]>([]);
 
   useEffect(() => {
     async function loadProducts(): Promise<void> {
@@ -112,6 +113,13 @@ const CartProvider: React.FC = ({ children }) => {
     [products]
   );
 
+  const cleanCart = useCallback(async () => {
+    const removedProduct = [] as IProductCart[];
+
+    setProducts(removedProduct);
+    localStorage.setItem("@MyCart", JSON.stringify(removedProduct));
+  }, []);
+
   const decrement = useCallback(
     async (id) => {
       const newProducts = [...products];
@@ -141,6 +149,7 @@ const CartProvider: React.FC = ({ children }) => {
       decrement,
       products,
       removeFromCart,
+      cleanCart,
       quantityCart,
       totalPrice,
     }),
@@ -150,6 +159,7 @@ const CartProvider: React.FC = ({ children }) => {
       increment,
       decrement,
       removeFromCart,
+      cleanCart,
       quantityCart,
       totalPrice,
     ]
