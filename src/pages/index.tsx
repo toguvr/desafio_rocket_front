@@ -14,10 +14,10 @@ import client from "../services/apollo-client";
 import { convertMoney } from "../utils/money";
 import { IProduct } from "../dtos";
 import { useProducts } from "../hooks/products";
-import SEO from "../components/SEO";
 import { useGetAllProductsByPage } from "../graphql/querys";
 import { useGlobalState } from "../hooks/globalState";
 import Loader from "react-loader-spinner";
+import Head from "next/head";
 
 interface HomeProps {
   allProducts: IProduct[];
@@ -79,11 +79,10 @@ export default function Home({ allProducts, totalProducts }: HomeProps) {
 
   return (
     <Container>
-      <SEO
-        title="capputeeno | Home"
-        description="capputeeno, loja online"
-        image="/assets/capputeeno.png"
-      />
+      <Head>
+        <title>capputeeno | Home</title>
+        <meta name="descrition" content="capputeeno, loja online" />
+      </Head>
       <div>
         <FilterContainer>
           <CategoryList>
