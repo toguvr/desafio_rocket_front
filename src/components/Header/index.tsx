@@ -40,16 +40,9 @@ export function Header() {
     try {
       const { data } = await refetch();
 
-      const newDataConvertedPrice = data.allProducts.map(
-        (product: IProduct) => {
-          return {
-            ...product,
-            convertedPrice: convertMoney(Number(product.price)),
-          };
-        }
-      );
+      console.log(data.allProducts);
 
-      setSearchProducts(newDataConvertedPrice);
+      setSearchProducts(data.allProducts);
     } catch (err) {
     } finally {
       setLoading(false);

@@ -11,7 +11,7 @@ import Link from "next/link";
 import SEO from "../../components/SEO";
 import { toast } from "react-toastify";
 import { useCart } from "../../hooks/cart";
-import { useGetProductById } from "../../graphql/querys";
+import { useCallback } from "react";
 
 interface StaticProps {
   product: IProduct;
@@ -20,10 +20,10 @@ interface StaticProps {
 export default function ProductPage({ product }: StaticProps) {
   const { addToCart } = useCart();
 
-  function addItemToCart() {
+  const addItemToCart = useCallback(() => {
     addToCart(product);
     toast.success(`${product?.name} adicionado ao carrinho!`);
-  }
+  }, []);
 
   return (
     <Container>

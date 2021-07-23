@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Organize } from "../components/Organize";
 import { Pagination } from "../components/Pagination";
 import { ProductCard } from "../components/ProductCard";
@@ -41,7 +41,7 @@ export default function Home({ allProducts, totalProducts }: HomeProps) {
     globalState.order
   );
 
-  const getProducts = async () => {
+  const getProducts = useCallback(async () => {
     setLoading(true);
 
     try {
@@ -62,7 +62,7 @@ export default function Home({ allProducts, totalProducts }: HomeProps) {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     setCurrentPage(1);

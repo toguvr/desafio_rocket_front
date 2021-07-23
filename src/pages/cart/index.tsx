@@ -32,8 +32,10 @@ export default function Cart() {
         <CheckoutContainer>
           <h2>Compra realizada com sucesso</h2>
           <p>
-            Seu pedido é o número: #
-            {Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000}
+            Seu pedido é o número:{" "}
+            <strong>
+              #{Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000}
+            </strong>{" "}
           </p>
           <p>Seu carrinho será esvaziado.</p>
 
