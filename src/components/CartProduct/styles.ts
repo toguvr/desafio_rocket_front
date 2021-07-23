@@ -87,29 +87,32 @@ export const Container = styled.div`
 
     > div:last-child {
       margin-top: auto;
-
-      > select {
-        background: #f3f5f6;
-        padding: 8px 16px 8px 12px;
-        border: 1px solid #a8a8b3;
-        box-sizing: border-box;
-        border-radius: 8px;
-        height: 40px;
-        width: 65px;
-        font-family: Saira;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 150%;
+      > div {
         display: flex;
         align-items: center;
-        text-align: center;
-        justify-content: center;
-        text-transform: uppercase;
-        vertical-align: middle;
-        color: #737380;
+        > div {
+          margin: 0 16px;
+          background: #f3f5f6;
+          padding: 8px 16px 8px 12px;
+          border: 1px solid #a8a8b3;
+          box-sizing: border-box;
+          border-radius: 8px;
+          height: 40px;
+          width: 65px;
+          font-family: Saira;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 150%;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          text-transform: uppercase;
+          vertical-align: middle;
+          color: #737380;
+        }
       }
-
       > strong {
         font-family: Saira;
         font-style: normal;

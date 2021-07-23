@@ -10,10 +10,13 @@ export function Organize() {
   const [open, setOpen] = useState(false);
   const { setGlobalState } = useGlobalState();
 
-  const handleOrganize = useCallback((sort, order) => {
-    setGlobalState({ sort, order });
-    setOpen(false);
-  }, []);
+  const handleOrganize = useCallback(
+    (sort, order) => {
+      setGlobalState({ sort, order });
+      setOpen(false);
+    },
+    [setGlobalState]
+  );
 
   return (
     <ClickAwayListener onClickAway={() => setOpen(false)}>

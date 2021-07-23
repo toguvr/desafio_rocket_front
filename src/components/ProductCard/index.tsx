@@ -23,7 +23,7 @@ export function ProductCard({ imageUrl, name, price, id }: ProductCardProps) {
         />
         <div>
           <p>{name}</p>
-          <h3>{price}</h3>
+          <strong>{price}</strong>
         </div>
       </Container>
     </Link>

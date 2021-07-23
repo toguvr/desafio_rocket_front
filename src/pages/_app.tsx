@@ -5,11 +5,17 @@ import client from "../services/apollo-client";
 import GlobalStyle from "../styles/GlobalStyle";
 import AppContainer from "../hooks";
 import { ToastContainer } from "react-toastify";
+import SEO from "../components/SEO";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
       <AppContainer>
+        <SEO
+          title="capputeeno | Home"
+          description="capputeeno, loja online"
+          image="/assets/capputeeno.png"
+        />
         <Header />
         <Component {...pageProps} />
         <GlobalStyle />

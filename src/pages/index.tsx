@@ -62,7 +62,7 @@ export default function Home({ allProducts, totalProducts }: HomeProps) {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [setCountProducts, setProducts]);
 
   useEffect(() => {
     setCurrentPage(1);

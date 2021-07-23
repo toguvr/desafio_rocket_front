@@ -36,7 +36,7 @@ export const Container = styled.div`
       border-bottom: 1px solid #dce2e6;
     }
 
-    > h3 {
+    > strong {
       font-family: Saira;
       font-style: normal;
       font-weight: 600;

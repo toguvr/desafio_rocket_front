@@ -18,6 +18,7 @@ import { useEffect } from "react";
 import Loader from "react-loader-spinner";
 import ClickAwayListener from "react-click-away-listener";
 import { useCallback } from "react";
+import Image from "next/image";
 
 export function Header() {
   const { quantityCart } = useCart();
@@ -59,31 +60,33 @@ export function Header() {
           <Logo>capputeeno</Logo>
         </Link>
         <div>
-          <SearchContainer>
-            <SearchContent>
-              <input
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                placeholder="Procurando por algo específico?"
-                type="text"
-              />
-              {loading ? (
-                <Loader type="Puff" color="#737380" height={24} width={24} />
-              ) : (
-                <SvgComponent type="lupa" />
-              )}
-            </SearchContent>
-            {searchProducts.length > 0 && value && (
-              <ClickAwayListener
-                onClickAway={() => {
-                  setValue("");
-                }}
-              >
+          <ClickAwayListener
+            onClickAway={() => {
+              setValue("");
+            }}
+          >
+            <SearchContainer>
+              <SearchContent>
+                <input
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  placeholder="Procurando por algo específico?"
+                  type="text"
+                />
+                {loading ? (
+                  <Loader type="Puff" color="#737380" height={24} width={24} />
+                ) : (
+                  <SvgComponent type="lupa" />
+                )}
+              </SearchContent>
+              {searchProducts.length > 0 && value && (
                 <ResultsContent>
                   {searchProducts.map((product) => (
                     <Link key={product.id} href={`/product/${product.id}`}>
                       <div onClick={() => setSearchProducts([])}>
-                        <img
+                        <Image
+                          width="40px"
+                          height="40px"
                           src={product.image_url}
                           alt={"Imagem" + product.name}
                         />
@@ -92,22 +95,22 @@ export function Header() {
                     </Link>
                   ))}
                 </ResultsContent>
-              </ClickAwayListener>
-            )}
-            {searchProducts.length === 0 && value && !loading && (
-              <ClickAwayListener
-                onClickAway={() => {
-                  setValue("");
-                }}
-              >
-                <ResultsContent>
-                  <div>
-                    <p>Nenhum produto encontrado com este nome</p>
-                  </div>
-                </ResultsContent>
-              </ClickAwayListener>
-            )}
-          </SearchContainer>
+              )}
+              {searchProducts.length === 0 && value && !loading && (
+                <ClickAwayListener
+                  onClickAway={() => {
+                    setValue("");
+                  }}
+                >
+                  <ResultsContent>
+                    <div>
+                      <p>Nenhum produto encontrado com este nome</p>
+                    </div>
+                  </ResultsContent>
+                </ClickAwayListener>
+              )}
+            </SearchContainer>
+          </ClickAwayListener>
           <Link href="/cart">
             <BagContainer>
               <SvgComponent cursor="pointer" type="loja" />

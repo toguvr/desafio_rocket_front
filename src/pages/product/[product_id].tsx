@@ -23,7 +23,7 @@ export default function ProductPage({ product }: StaticProps) {
   const addItemToCart = useCallback(() => {
     addToCart(product);
     toast.success(`${product?.name} adicionado ao carrinho!`);
-  }, []);
+  }, [product, addToCart]);
 
   return (
     <Container>

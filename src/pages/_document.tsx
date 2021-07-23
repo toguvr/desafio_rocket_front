@@ -6,6 +6,7 @@ import Document, {
   NextScript,
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import SEO from "../components/SEO";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -36,8 +37,13 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="pt-br">
         <Head>
+          <SEO
+            title="capputeeno | Home"
+            description="capputeeno, loja online"
+            image="/assets/capputeeno.png"
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
@@ -52,6 +58,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap"
             rel="stylesheet"
           />
+          <meta name="descrition" content="loja online capputeeno" />
           <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         </Head>
         <body>

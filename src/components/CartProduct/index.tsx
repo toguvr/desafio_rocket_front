@@ -8,6 +8,7 @@ import { convertMoney } from "../../utils/money";
 import { useCart } from "../../hooks/cart";
 
 import { Dialog } from "../Dialog";
+import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 
 interface ProductCardProps {
   imageUrl: string;
@@ -28,12 +29,12 @@ export function CartProduct({
 }: ProductCardProps) {
   const [openDialog, setDialog] = useState(false);
   const [itemToDelete, setItemToDelete] = useState("");
-  const { removeFromCart } = useCart();
+  const { removeFromCart, increment, decrement } = useCart();
 
   const deleteItem = useCallback(() => {
     removeFromCart(itemToDelete);
     setDialog(false);
-  }, [itemToDelete]);
+  }, [itemToDelete, removeFromCart]);
 
   return (
     <Container>
@@ -72,9 +73,23 @@ export function CartProduct({
         </div>
         <p>{description}</p>
         <div>
-          <select name="" value={quantity} id="">
-            <option value={quantity}>{quantity}</option>
-          </select>
+          <div>
+            <FiMinusCircle
+              size={30}
+              color="#a8a8b3"
+              cursor="pointer"
+              onClick={() => decrement(id)}
+            />
+            <div>
+              <p>{quantity}</p>
+            </div>
+            <FiPlusCircle
+              size={30}
+              color="#a8a8b3"
+              cursor="pointer"
+              onClick={() => increment(id)}
+            />
+          </div>
           <strong>{convertMoney(Number(price) * quantity)}</strong>
         </div>
       </div>

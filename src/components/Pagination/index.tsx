@@ -18,7 +18,7 @@ export function Pagination({
 }: PaginationProps) {
   const totalPages = useMemo(() => {
     return Math.ceil(totalProducts / 12);
-  }, []);
+  }, [totalProducts]);
 
   const allPages = useMemo(() => {
     return Array.from({ length: totalPages }, (_, index) => index + 1);
@@ -38,7 +38,7 @@ export function Pagination({
         return;
       }
     },
-    [currentPage, totalPages]
+    [currentPage, totalPages, setCurrentPage]
   );
 
   return (
@@ -46,6 +46,7 @@ export function Pagination({
       {allPages.map((page) => {
         return (
           <OptionPage
+            aria-label="Page Option"
             key={page}
             onClick={() => setCurrentPage(page)}
             selected={currentPage === page}
@@ -56,13 +57,18 @@ export function Pagination({
       })}
 
       <OptionPage
+        aria-label="Left Align"
         onClick={() => changePage("down")}
         style={{ marginLeft: "8px" }}
         selected={false}
       >
         <FiChevronLeft />
       </OptionPage>
-      <OptionPage onClick={() => changePage("up")} selected={false}>
+      <OptionPage
+        aria-label="Right Align"
+        onClick={() => changePage("up")}
+        selected={false}
+      >
         <FiChevronRight />
       </OptionPage>
     </Container>
