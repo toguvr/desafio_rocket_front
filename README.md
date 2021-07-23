@@ -99,6 +99,8 @@ yarn cypress run
 
 <img src="./src/assets/e2e.png"/>
 
+---
+
 ### Testes unitários
 
 Criado testes unitários de componente (Criei do Dialog e da paginação para demonstração), hook (Criei do cart, pois acredito ser o mais importante da aplicação) e páginas (Teste da renderização correta do carrinho e inclusive testando o staticPaths e staticProps da página de detalhe do produto) .
@@ -111,9 +113,13 @@ yarn jest
 
 <img src="./src/assets/unitarios.png"/>
 
+---
+
 ### Deploy na vercel
 
 [![Live app](https://vercel.com/button)](https://desafio-rocket-front.vercel.app)
+
+---
 
 ### Observações
 
@@ -149,17 +155,23 @@ yarn jest
 
 <img src="./src/assets/lighthouse.png"/>
 
+---
+
 ### Telas do projeto para desktop
 
 <img src="./src/assets/home.png"/>
 <img src="./src/assets/produto.png"/>
 <img src="./src/assets/carrinho.png"/>
 
+---
+
 ### Telas do projeto para mobile
 
 <img src="./src/assets/homeMobile.png"/>
 <img src="./src/assets/produtoMobile.png"/>
 <img src="./src/assets/carrinhoMobile.png"/>
+
+---
 
 <!-- CONTACT -->
 
