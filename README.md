@@ -40,18 +40,14 @@ Este projeto consiste em uma aplicação web de e-commerce em que seus usuários
 
 <img src="./src/assets/desktop.gif"/>
 <img src="./src/assets/responsivo.gif"/>
-<img src="./src/assets/home.png"/>
-<img src="./src/assets/homeMobile.png"/>
-<img src="./src/assets/produto.png"/>
-<img src="./src/assets/produtoMobile.png"/>
-<img src="./src/assets/carrinho.png"/>
-<img src="./src/assets/carrinhoMobile.png"/>
+
+Mais imagens do projeto ao final.
 
 ### Feito Com
 
 Abaixo segue o que foi utilizado na criação deste projeto:
 
-- [NextJs](https://pt-br.reactjs.org/) - O React é uma biblioteca JavaScript de código aberto com foco em criar interfaces de usuário em páginas web. É mantido pelo Facebook, Instagram, outras empresas e uma comunidade de desenvolvedores individuais;
+- [NextJs](https://pt-br.reactjs.org/) - Next.js é uma estrutura da web de desenvolvimento front-end React de código aberto criada por Vercel que permite funcionalidades como renderização do lado do servidor e geração de sites estáticos para aplicativos da web baseados em React;
 - [Typescript](https://www.typescriptlang.org/) - TypeScript é um superconjunto de JavaScript desenvolvido pela Microsoft que adiciona tipagem e alguns outros recursos a linguagem;
 - [Styled-Components](https://styled-components.com/) - Não utilizei nenhuma ui, fiz tudo com css puro;
 - [GraphQl](https://graphql.org/) - GraphQL é considerada uma alternativa para arquiteturas REST, além de oferecer um serviço runtime para rodar comandos e consumir uma API.;
@@ -98,29 +94,46 @@ git clone https://github.com/toguvr/desafio_rocket_front.git
 
 ### Observações
 
-1- O componente "organizar por" tem as opções novidades e mais vendidos, porém a api nao tem estas opções dentro dos produtos. E ao ordenar todos itens por preço do menor para o maior a api esta trazendo errado, como na imagem:
+1- Visando melhor performance e SEO para a home e as páginas dos produtos utilizei umas das maiores vantagens do next que é o poder de criar páginas estáticas com o next "getStaticProps" e já gerando para cada produto com o "getStaticPaths".
+
+2- Utilizei o componente Image do próprio next na atualização 10 para melhor desempenho nas imagens que vem do back com sua cdn própria.
+
+3- O componente "organizar por" tem as opções novidades e mais vendidos, porém a api nao tem estas opções dentro dos produtos. E ao ordenar todos itens por preço do menor para o maior a api esta trazendo errado, como na imagem:
 
 <img src="./src/assets/studiograph.png"/>
 
-2- O "Procurar" é para puxar por nome, mas o name só busca o nome exato da forma como esta na api e a api não tem um "like name" para puxar todos que contenham os caracteres. Sobre onde é mostrado a busca eu criei um slide a baixo para não atrapalhar a navegação e voltar a página inicial em toda busca, buscando melhorar ux.
+4- O "Procurar" é para puxar por nome, mas o name só busca o nome exato da forma como esta na api e a api não tem um "like name" para puxar todos que contenham os caracteres. Sobre onde é mostrado a busca eu criei um slide a baixo para não atrapalhar a navegação e voltar a página inicial em toda busca, buscando melhorar ux.
 
-3- No Carrinho os itens vem com um select com a quantidade, no protótipo não vem mostrando as opções de dentro do select, mas não acho que seria uma boa prática, uma vez que assim estaria limitando o usuário a comprar até "x" itens e nossa api não tem estoque. Para isto criei como plus um "+" e um "-" ao lado em vez do select, acredito ser uma melhor ux ? Mas segue foto também do app feito da forma antiga com o select.
+5- No Carrinho os itens vem com um select com a quantidade, no protótipo não vem mostrando as opções de dentro do select, mas não acho que seria uma boa prática, uma vez que assim estaria limitando o usuário a comprar até "x" itens e nossa api não tem estoque. Para isto criei como plus um "+" e um "-" ao lado em vez do select, acredito ser uma melhor ux ? Mas segue foto também do app feito da forma antiga com o select.
 
 <img src="./src/assets/cartSelect.png"/>
 
-4- A api pública "https://rocketseat-frontend-challenge.herokuapp.com" esta dando cors em local e no deploy que fiz <a target="_blank" rel="noopener noreferrer" href="https://desafio-rocket-front.vercel.app">clicando aqui</a>
+6- A api pública "https://rocketseat-frontend-challenge.herokuapp.com" esta dando cors em local e no deploy que fiz <a target="_blank" rel="noopener noreferrer" href="https://desafio-rocket-front.vercel.app">clicando aqui</a>
 
-5- Os testes unitários, fiz apenas um de componente e um de uma página para demonstrar o conhecimento já que é um desafio extra.
+7- Os testes unitários, fiz apenas um de componente e um de uma página para demonstrar o conhecimento já que é um desafio extra.
 
-6- Adicionei Toast ao adicionar ao carrinho e um dialog que abre ao excluir um item do carrinho para confirmar a ação, ambos para melhorar ux.
+8- Adicionei Toast ao adicionar ao carrinho e um dialog que abre ao excluir um item do carrinho para confirmar a ação, coloquei navegação no título dos itens do carrinho, todos para melhorar ux.
 
-6- Coloquei algumas navegações em títulos como no carrinho e no buscar, ambos para melhorar ux.
+9- uscar eu apenas faço a busca se o usuário ficar mais que 1 segundo sem digitar para melhora de performance.
 
-7- Utilizei alguns hooks a mais como useMemo em componentes pai que para quantidade de itens talvez não fizesse sentido para performance, mas coloquei para demonstrar o conhecimento sobre.
+10- Utilizei alguns hooks a mais como useMemo em componentes pai que para quantidade de itens talvez não fizesse sentido para performance, mas coloquei para demonstrar o conhecimento sobre.
 
-8- Ao finalizar compra, uma vez que não tem nada no protótipo, eu criei um dialog que abre avisando o usuário dizendo que realizou a compra com número do pedido (gerado randomicamente).
+11- Ao finalizar compra, uma vez que não tem nada no protótipo, eu criei um dialog que abre avisando o usuário dizendo que realizou a compra com número do pedido (gerado randomicamente).
 
 <img src="./src/assets/finalizar.png"/>
+
+12- Conseguindo com tudo citado atingir uma performance, SEO e acessibilidade e boas práticas bons (todos a cima de 90), sendo que melhores práticas poderia melhorar quando liberar o cors, poque os erros no console afetaram (medido com a extensão do lighthouse já em ambiente de produção na vercel).
+
+<img src="./src/assets/lighthouse.png"/>
+
+### Telas do projeto para desktop e mobile
+
+<img src="./src/assets/home.png"/>
+<img style="width: 300px" src="./src/assets/homeMobile.png"/>
+<img src="./src/assets/produto.png"/>
+<img style="width: 300px" src="./src/assets/produtoMobile.png"/>
+<img src="./src/assets/carrinho.png"/>
+<img style="width: 300px" src="./src/assets/carrinhoMobile.png"/>
 
 <!-- CONTACT -->
 
