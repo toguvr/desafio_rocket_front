@@ -83,7 +83,7 @@ git clone https://github.com/Rocketseat/frontend-challenge.git
 git clone https://github.com/toguvr/desafio_rocket_front.git
 ```
 
-2. Depois do projeto clonado você pode entrar na pasta raiz e dar o comando `yarn` para instalar as dependências, após isto basta colocar no arquivo ".env.local" (Se nao existir basta criar na raíz), NEXT_PUBLIC_API_URL= (http://localhost:3333 ou **ou utilizar a api disponibilizada https://rocketseat-frontend-challenge.herokuapp.com, mas até o momento 23/07 esta dando cors** rodar `yarn dev` para iniciar o front.
+2. Depois do projeto clonado você pode entrar na pasta raiz e dar o comando `yarn` para instalar as dependências, após isto basta colocar no arquivo ".env.local" (Se nao existir basta criar na raíz), NEXT_PUBLIC_API_URL= (http://localhost:3333 **ou utilizar a api disponibilizada https://rocketseat-frontend-challenge.herokuapp.com, mas até o momento 23/07 esta dando cors** rodar `yarn dev` para iniciar o front.
 
 ---
 
@@ -133,7 +133,7 @@ yarn jest
 
 4- O "Procurar" é para puxar por nome, mas o name só busca o nome exato da forma como esta na api e a api não tem um "like name" para puxar todos que contenham os caracteres. Sobre onde é mostrado a busca eu criei um slide a baixo para não atrapalhar a navegação e voltar a página inicial em toda busca, buscando melhorar ux.
 
-5- No Carrinho os itens vem com um select com a quantidade, no protótipo não vem mostrando as opções de dentro do select, mas não acho que seria uma boa prática, uma vez que assim estaria limitando o usuário a comprar até "x" itens e nossa api não tem estoque. Para isto criei como plus um "+" e um "-" ao lado em vez do select, acredito ser uma melhor ux ? Mas segue foto também do app feito da forma antiga com o select.
+5- No Carrinho os itens vem com um select com a quantidade, mas no protótipo não vem mostrando as opções de dentro do select, mas não acho que seria uma boa prática, uma vez que assim estaria limitando o usuário à comprar até "x" itens e nossa api não tem estoque. Para isto criei como plus um "+" e um "-" ao lado da quantidade em vez do select, acredito ser uma melhor prática para ux ? Mas segue foto também do app feito da forma antiga com o select como mandava o protótipo.
 
 <img src="./src/assets/cartSelect.png"/>
 
@@ -143,9 +143,9 @@ yarn jest
 
 8- Adicionei Toast ao adicionar ao carrinho e um dialog que abre ao excluir um item do carrinho para confirmar a ação, coloquei navegação no título dos itens do carrinho, todos para melhorar ux.
 
-9- uscar eu apenas faço a busca se o usuário ficar mais que 1 segundo sem digitar para melhora de performance.
+9- Ao digitar algo no buscar, apenas é realizada a query na api se o usuário ficar mais que 1 segundo sem digitar para melhora de performance.
 
-10- Utilizei alguns hooks a mais como useMemo em componentes pai que para quantidade de itens talvez não fizesse sentido para performance, mas coloquei para demonstrar o conhecimento sobre.
+10- Utilizei alguns hooks a mais como useMemo em componentes "pais" que para quantidade de itens em tela talvez não fizesse sentido para performance, mas coloquei para demonstrar o conhecimento sobre.
 
 11- Ao finalizar compra, uma vez que não tem nada no protótipo, eu criei um dialog que abre avisando o usuário dizendo que realizou a compra com número do pedido (gerado randomicamente).
 
