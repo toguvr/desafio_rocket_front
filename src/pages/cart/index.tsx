@@ -30,7 +30,7 @@ export default function Cart() {
     <>
       <Dialog open={openDialog}>
         <CheckoutContainer>
-          <h2>Compra realizada com sucesso</h2>
+          <h2 data-cy="success-text">Compra realizada com sucesso</h2>
           <p>
             Seu pedido é o número:{" "}
             <strong>
@@ -96,7 +96,9 @@ export default function Cart() {
               <strong>Total</strong>
               <strong>{convertMoney(Number(totalPrice) + 40)}</strong>
             </div>
-            <button onClick={() => setDialog(true)}>Finalizar a compra</button>
+            <button data-cy="button-checkout" onClick={() => setDialog(true)}>
+              Finalizar a compra
+            </button>
             <a
               className="first-link"
               href="http://"

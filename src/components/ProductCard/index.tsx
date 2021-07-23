@@ -9,12 +9,19 @@ interface ProductCardProps {
   name: string;
   price: string;
   id: string;
+  cy: string;
 }
 
-export function ProductCard({ imageUrl, name, price, id }: ProductCardProps) {
+export function ProductCard({
+  imageUrl,
+  name,
+  price,
+  id,
+  cy,
+}: ProductCardProps) {
   return (
     <Link href={`/product/${id}`}>
-      <Container>
+      <Container data-cy={cy}>
         <Image
           width="256px"
           height="300px"

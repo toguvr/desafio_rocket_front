@@ -112,7 +112,7 @@ export function Header() {
             </SearchContainer>
           </ClickAwayListener>
           <Link href="/cart">
-            <BagContainer>
+            <BagContainer data-cy="cart-button">
               <SvgComponent cursor="pointer" type="loja" />
               {quantityCart > 0 && <div>{quantityCart}</div>}
             </BagContainer>

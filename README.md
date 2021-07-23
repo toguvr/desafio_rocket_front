@@ -88,6 +88,12 @@ git clone https://github.com/toguvr/desafio_rocket_front.git
 
 ---
 
+### Teste e2e com Cypress
+
+Criado teste e2e com cypress para garantir que o usuário consiga clicar no produto escolhido, ir para página de detalhe do produto, clicar para adicionar ao carrinho, clicar na "bag" para ir para página do carrinho, finalizar a compra e aparecer a mensagem de sucesso.
+
+<img src="./src/assets/e2e.png"/>
+
 ### Deploy na vercel
 
 [![Live app](https://vercel.com/button)](https://desafio-rocket-front.vercel.app)
@@ -129,11 +135,11 @@ git clone https://github.com/toguvr/desafio_rocket_front.git
 ### Telas do projeto para desktop e mobile
 
 <img src="./src/assets/home.png"/>
-<img style="width: 300px" src="./src/assets/homeMobile.png"/>
+<img src="./src/assets/homeMobile.png"/>
 <img src="./src/assets/produto.png"/>
-<img style="width: 300px" src="./src/assets/produtoMobile.png"/>
+<img src="./src/assets/produtoMobile.png"/>
 <img src="./src/assets/carrinho.png"/>
-<img style="width: 300px" src="./src/assets/carrinhoMobile.png"/>
+<img src="./src/assets/carrinhoMobile.png"/>
 
 <!-- CONTACT -->
 

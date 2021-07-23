@@ -65,7 +65,7 @@ export default function ProductPage({ product }: StaticProps) {
             <p className="description-title">DESCRIÇÃO</p>
             <span>{product?.description}</span>
 
-            <button onClick={addItemToCart}>
+            <button data-cy="button-item" onClick={addItemToCart}>
               <SvgComponent cursor="pointer" color="#F5F5FA" type="loja" />
               ADICIONAR AO CARRINHO
             </button>

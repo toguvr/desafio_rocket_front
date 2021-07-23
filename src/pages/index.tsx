@@ -119,9 +119,10 @@ export default function Home({ allProducts, totalProducts }: HomeProps) {
               <h1>Carregando...</h1>
             </>
           ) : products.length > 0 ? (
-            products.map((product) => {
+            products.map((product, index) => {
               return (
                 <ProductCard
+                  cy={"product-item-" + index}
                   key={product.id}
                   id={product.id}
                   imageUrl={product.image_url}
