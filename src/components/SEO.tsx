@@ -16,7 +16,7 @@ export default function SEO({
   shouldIndexPage = true,
 }: SEOProps) {
   const pageTitle = `${title} ${!shouldExcludeTitleSuffix ? "| Loja" : ""}`;
-  const pageImage = image ? image : null;
+  const pageImage = image ? image : undefined;
 
   return (
     <Head>
