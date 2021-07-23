@@ -1,4 +1,4 @@
-import { Container, BackContainer, ItemContainer } from "./styles";
+import { Container, BackContainer, ItemContainer } from "../../styles/Product";
 import { gql } from "@apollo/client";
 import client from "../../services/apollo-client";
 import { convertMoney } from "../../utils/money";

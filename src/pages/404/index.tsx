@@ -1,7 +1,7 @@
 import { FiSearch } from "react-icons/fi";
 import { Logo } from "../../components/Header/styles";
 import SEO from "../../components/SEO";
-import { PageError } from "./styles";
+import { PageError } from "../../styles/404";
 
 export default function NotFound() {
   return (

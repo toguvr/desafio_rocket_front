@@ -6,7 +6,7 @@ import {
   Resume,
   CartItemsList,
   CheckoutContainer,
-} from "./styles";
+} from "../../styles/Cart";
 import SvgComponent from "../../components/SvgComponent";
 import Link from "next/link";
 import SEO from "../../components/SEO";

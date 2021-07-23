@@ -70,7 +70,7 @@ const CartProvider: React.FC = ({ children }) => {
     const allProducts = [...products];
 
     return allProducts.reduce(function (total, numero) {
-      return Number(total + numero.quantity * numero.price);
+      return Number(total + numero.quantity * Number(numero.price));
     }, 0);
   }, [products]);
 
