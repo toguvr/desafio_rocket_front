@@ -8,10 +8,10 @@ import { Params } from "next/dist/next-server/server/router";
 import Image from "next/image";
 import SvgComponent from "../../components/SvgComponent";
 import Link from "next/link";
-import SEO from "../../components/SEO";
 import { toast } from "react-toastify";
 import { useCart } from "../../hooks/cart";
 import { useCallback } from "react";
+import Head from "next/head";
 
 interface StaticProps {
   product: IProduct;
@@ -27,11 +27,14 @@ export default function ProductPage({ product }: StaticProps) {
 
   return (
     <Container>
-      <SEO
-        title={`capputeeno | ${product?.name}`}
-        description={`capputeeno, página de detalhes do produto ${product?.name}`}
-        image="/assets/capputeeno.png"
-      />
+      <Head>
+        <title>{`capputeeno | ${product?.name}`}</title>
+        <meta
+          name="descrition"
+          content={`capputeeno, página de detalhes do produto ${product?.name}`}
+        />
+      </Head>
+
       <div>
         <Link href="/">
           <BackContainer>
