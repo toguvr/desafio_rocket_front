@@ -1,7 +1,5 @@
 import React from "react";
 
-// import { Container } from './styles';
-
 interface SvgProps {
   color?: string;
   type?: string;

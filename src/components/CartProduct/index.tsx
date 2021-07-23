@@ -8,7 +8,6 @@ import { convertMoney } from "../../utils/money";
 import { useCart } from "../../hooks/cart";
 
 import { Dialog } from "../Dialog";
-import ClickAwayListener from "react-click-away-listener";
 
 interface ProductCardProps {
   imageUrl: string;

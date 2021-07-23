@@ -11,43 +11,33 @@ import {
 import SvgComponent from "../SvgComponent";
 import Link from "next/link";
 import { useCart } from "../../hooks/cart";
-import {
-  useGetAllProductsByName,
-  useGetAllProductsByPage,
-} from "../../graphql/querys";
+import { useGetAllProductsByName } from "../../graphql/querys";
 import { useState } from "react";
-import { useProducts } from "../../hooks/products";
-import { convertMoney } from "../../utils/money";
 import { IProduct } from "../../dtos";
 import { useEffect } from "react";
 import Loader from "react-loader-spinner";
-import { useRouter } from "next/dist/client/router";
 import ClickAwayListener from "react-click-away-listener";
+import { useCallback } from "react";
 
 export function Header() {
   const { quantityCart } = useCart();
   const [value, setValue] = useState("");
   const [searchProducts, setSearchProducts] = useState([] as IProduct[]);
   const [loading, setLoading] = useState(false);
-  // const { setProducts, setCountProducts } = useProducts();
   const { refetch } = useGetAllProductsByName(value);
-  // const { refetch: refetchAll } = useGetAllProductsByPage(1, 12, "all", "", "");
-  // const router = useRouter();
 
-  const getProducts = async () => {
+  const getProducts = useCallback(async () => {
     setLoading(true);
 
     try {
       const { data } = await refetch();
-
-      console.log(data.allProducts);
 
       setSearchProducts(data.allProducts);
     } catch (err) {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     //vejo se já tem algo digitado para buscar, se já tiver espero até o usuário ficar 1 seg sem digitar nada, para somente ai buscar.

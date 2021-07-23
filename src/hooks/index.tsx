@@ -1,6 +1,5 @@
 import React from "react";
 import { CartProvider } from "./cart";
-import { DialogProvider } from "./dialog";
 import { StateProvider } from "./globalState";
 import { ProductsProvider } from "./products";
 
