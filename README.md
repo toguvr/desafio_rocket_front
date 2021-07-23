@@ -50,7 +50,8 @@ Abaixo segue o que foi utilizado na criação deste projeto:
 - [NextJs](https://pt-br.reactjs.org/) - Next.js é uma estrutura da web de desenvolvimento front-end React de código aberto criada por Vercel que permite funcionalidades como renderização do lado do servidor e geração de sites estáticos para aplicativos da web baseados em React;
 - [Typescript](https://www.typescriptlang.org/) - TypeScript é um superconjunto de JavaScript desenvolvido pela Microsoft que adiciona tipagem e alguns outros recursos a linguagem;
 - [Styled-Components](https://styled-components.com/) - Não utilizei nenhuma ui, fiz tudo com css puro;
-- [GraphQl](https://graphql.org/) - GraphQL é considerada uma alternativa para arquiteturas REST, além de oferecer um serviço runtime para rodar comandos e consumir uma API.;
+- [GraphQl](https://graphql.org/) - GraphQL é considerada uma alternativa para arquiteturas REST, além de oferecer um serviço runtime para rodar comandos e consumir uma API;
+- [Cypress](https://www.cypress.io/) - O Cypress.io é um framework de testes automatizados end-to-end usando JavaScript;
 - [ESLint](https://eslint.org/) - O ESLint é uma ferramenta de lint plugável para JavaScript e JSX;
   - [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) - Este pacote fornece o .eslintrc do Airbnb como uma configuração compartilhada extensível;
   - [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import) - Plugin do ESLint com regras para ajudar na validação de imports;
@@ -63,8 +64,6 @@ Abaixo segue o que foi utilizado na criação deste projeto:
   - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) - Desativa todas as regras que são desnecessárias ou que podem dar conflito com o Prettier;
 - [EditorConfig](https://editorconfig.org/) - O EditorConfig é um formatador de arquivos e coleções em forma de Plugin para Editores de código/texto com o objetivo de manter um padrão de código consistente entre diferentes editores, IDE's ou ambientes;
 - [@testing-library/react](https://testing-library.com/) - Lib para fazer testes unitários, fiz como exemplo testes em componentes, hooks e em página;
-
-<img src="./src/assets/testsautomatizados.png"/>
 
 <!-- GETTING STARTED -->
 
@@ -90,9 +89,27 @@ git clone https://github.com/toguvr/desafio_rocket_front.git
 
 ### Teste e2e com Cypress
 
-Criado teste e2e com cypress para garantir que o usuário consiga clicar no produto escolhido, ir para página de detalhe do produto, clicar para adicionar ao carrinho, clicar na "bag" para ir para página do carrinho, finalizar a compra e aparecer a mensagem de sucesso.
+Criado teste e2e com cypress para garantir que o usuário consiga clicar no produto escolhido, ir para página de detalhe do produto, clicar para adicionar ao carrinho, clicar na "bag" para ir para página do carrinho, finalizar a compra e aparecer a mensagem de sucesso, tudo em tamanho desktop e mobile para também garantir as funcionalidades no responsivo.
+
+Para rodar o teste:
+
+```sh
+yarn cypress run
+```
 
 <img src="./src/assets/e2e.png"/>
+
+### Testes unitários
+
+Criado testes unitários de componente (Criei do Dialog e da paginação para demonstração), hook (Criei do cart, pois acredito ser o mais importante da aplicação) e páginas (Teste da renderização correta do carrinho e inclusive testando o staticPaths e staticProps da página de detalhe do produto) .
+
+Para rodar o teste:
+
+```sh
+yarn jest
+```
+
+<img src="./src/assets/unitarios.png"/>
 
 ### Deploy na vercel
 
@@ -132,13 +149,16 @@ Criado teste e2e com cypress para garantir que o usuário consiga clicar no prod
 
 <img src="./src/assets/lighthouse.png"/>
 
-### Telas do projeto para desktop e mobile
+### Telas do projeto para desktop
 
 <img src="./src/assets/home.png"/>
-<img src="./src/assets/homeMobile.png"/>
 <img src="./src/assets/produto.png"/>
-<img src="./src/assets/produtoMobile.png"/>
 <img src="./src/assets/carrinho.png"/>
+
+### Telas do projeto para mobile
+
+<img src="./src/assets/homeMobile.png"/>
+<img src="./src/assets/produtoMobile.png"/>
 <img src="./src/assets/carrinhoMobile.png"/>
 
 <!-- CONTACT -->
