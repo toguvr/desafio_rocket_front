@@ -49,7 +49,7 @@ Abaixo segue o que foi utilizado na criação deste projeto:
 
 - [NextJs](https://pt-br.reactjs.org/) - Next.js é uma estrutura da web de desenvolvimento front-end React de código aberto criada por Vercel que permite funcionalidades como renderização do lado do servidor e geração de sites estáticos para aplicativos da web baseados em React;
 - [Typescript](https://www.typescriptlang.org/) - TypeScript é um superconjunto de JavaScript desenvolvido pela Microsoft que adiciona tipagem e alguns outros recursos a linguagem;
-- [Styled-Components](https://styled-components.com/) - Não utilizei nenhuma ui, fiz tudo com css puro;
+- [Styled-Components](https://styled-components.com/) - Styled-components é uma biblioteca para React e React Native que permite que você use estilos ao nível de componente na sua aplicação. Eles são escritos em uma mistura de JavaScript com CSS.
 - [GraphQl](https://graphql.org/) - GraphQL é considerada uma alternativa para arquiteturas REST, além de oferecer um serviço runtime para rodar comandos e consumir uma API;
 - [Cypress](https://www.cypress.io/) - O Cypress.io é um framework de testes automatizados end-to-end usando JavaScript;
 - [ESLint](https://eslint.org/) - O ESLint é uma ferramenta de lint plugável para JavaScript e JSX;
