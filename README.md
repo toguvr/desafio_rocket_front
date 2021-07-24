@@ -36,7 +36,7 @@
 
 ## Sobre o Projeto
 
-Este projeto consiste em uma aplicação web de e-commerce em que seus usuários podem estar acessando tanto pelo browser de suas máquinas quanto por seus dispositivos móveis. Sendo assim a aplicação é responsiva.
+Este projeto consiste em uma aplicação web de e-commerce em que seus usuários podem estar acessando tanto pelo browser de suas máquinas quanto por seus dispositivos móveis. Sendo assim uma aplicação responsiva.
 
 <img src="./src/assets/desktop.gif"/>
 <img src="./src/assets/responsivo.gif"/>
@@ -65,7 +65,9 @@ Abaixo segue o que foi utilizado na criação deste projeto:
 - [EditorConfig](https://editorconfig.org/) - O EditorConfig é um formatador de arquivos e coleções em forma de Plugin para Editores de código/texto com o objetivo de manter um padrão de código consistente entre diferentes editores, IDE's ou ambientes;
 - [@testing-library/react](https://testing-library.com/) - Lib para fazer testes unitários, fiz como exemplo testes em componentes, hooks e em página;
 
-<!-- GETTING STARTED -->
+## <!-- GETTING STARTED -->
+
+---
 
 ### Instalação
 
@@ -103,7 +105,7 @@ yarn cypress run
 
 ### Testes unitários
 
-Criado testes unitários de componente (Criei do Dialog e da paginação para demonstração), hook (Criei do cart, pois acredito ser o mais importante da aplicação) e páginas (Teste da renderização correta do carrinho e inclusive testando o staticPaths e staticProps da página de detalhe do produto) .
+Criado testes unitários de componente (Criei do Dialog e da paginação para demonstração), hook (Criei do cart, pois acredito ser o componente mais importante da aplicação) e páginas (Teste da renderização correta do carrinho e inclusive testando o staticPaths e staticProps da página de detalhe do produto) .
 
 Para rodar o teste:
 
@@ -117,41 +119,43 @@ yarn jest
 
 ### Deploy na vercel
 
+**funcionando com apenas os primeiros 12 itens da home e todos as páginas de detalhes de itens devido ao cache realizado com o getStaticProps do next, uma vez que em produção a api esta dando cors**
+
 [![Live app](https://vercel.com/button)](https://desafio-rocket-front.vercel.app)
 
 ---
 
 ### Observações
 
-1- Visando melhor performance e SEO para a home e as páginas dos produtos utilizei umas das maiores vantagens do next que é o poder de criar páginas estáticas com o next "getStaticProps" e já gerando para cada produto com o "getStaticPaths".
+1- Visando melhor performance e SEO para a home e as páginas dos produtos utilizei umas das maiores vantagens do next que é o poder de criar páginas estáticas (cache) com o next "getStaticProps" e já gerando para cada produto com o "getStaticPaths".
 
-2- Utilizei o componente Image do próprio next na atualização 10 para melhor desempenho nas imagens que vem do back com sua cdn própria.
+2- Utilizei o componente Image do próprio next da atualização 10 para melhor desempenho nas imagens que vem do back com sua cdn própria.
 
 3- O componente "organizar por" tem as opções novidades e mais vendidos, porém a api nao tem estas opções dentro dos produtos. E ao ordenar todos itens por preço do menor para o maior a api esta trazendo errado, como na imagem:
 
 <img src="./src/assets/studiograph.png"/>
 
-4- O "Procurar" é para puxar por nome, mas o name só busca o nome exato da forma como esta na api e a api não tem um "like name" para puxar todos que contenham os caracteres. Sobre onde é mostrado a busca eu criei um slide a baixo para não atrapalhar a navegação e voltar a página inicial em toda busca, buscando melhorar ux.
+4- O "Procurar" é para puxar por nome, mas o filtro name só busca o nome exato da forma como esta escrito na api e a mesma não tem um "like name" para puxar todos que contenham os produtos com nome com caracteres digitados. Sobre onde é mostrado a busca eu criei um slide a baixo para não atrapalhar a navegação e voltar a página inicial em toda busca (uma vez que o componente buscar aparece em todas as telas), buscando melhorar ux.
 
-5- No Carrinho os itens vem com um select com a quantidade, mas no protótipo não vem mostrando as opções de dentro do select, mas não acho que seria uma boa prática, uma vez que assim estaria limitando o usuário à comprar até "x" itens e nossa api não tem estoque. Para isto criei como plus um "+" e um "-" ao lado da quantidade em vez do select, acredito ser uma melhor prática para ux ? Mas segue foto também do app feito da forma antiga com o select como mandava o protótipo.
+5- No Carrinho os itens vem com um select com a quantidade, mas no protótipo não vem mostrando as opções de dentro do select, mas não acredito que seria uma boa prática, uma vez que assim estaria limitando o usuário à comprar até "x" itens e nossa api não tem estoque. Para isto criei como "plus" um "+" e um "-" ao lado da quantidade em vez do select. Acredito ser uma melhor prática para ux. Mas segue uma foto também do app feito da forma antiga com o select como mandava o protótipo.
 
 <img src="./src/assets/cartSelect.png"/>
 
-6- A api pública "https://rocketseat-frontend-challenge.herokuapp.com" esta dando cors em local e no deploy que fiz <a target="_blank" rel="noopener noreferrer" href="https://desafio-rocket-front.vercel.app">clicando aqui</a>
+6- A api pública "https://rocketseat-frontend-challenge.herokuapp.com" esta dando cors em local e em produção no deploy que fiz, veja <a target="_blank" rel="noopener noreferrer" href="https://desafio-rocket-front.vercel.app">clicando aqui</a>
 
-7- Os testes unitários, fiz apenas um de componente e um de uma página para demonstrar o conhecimento já que é um desafio extra.
+7- Os testes unitários, fiz apenas de alguns componentes, um do hook do carrinho (por acreditar ter as funcionalidades mais importantes do e-commerce) e de páginas fiz do carrinho e da página de produto (este realizando o teste na parte de cache do next, testando o staticPaths e staticProps) para demonstrar o conhecimento já que é um desafio extra.
 
-8- Adicionei Toast ao adicionar ao carrinho e um dialog que abre ao excluir um item do carrinho para confirmar a ação, coloquei navegação no título dos itens do carrinho, todos para melhorar ux.
+8- Coloquei um Toast ao adicionar ao carrinho e um dialog que abre ao excluir um item do carrinho para confirmar a ação, coloquei navegação no título dos itens do carrinho, todos para melhorar ux.
 
-9- Ao digitar algo no buscar, apenas é realizada a query na api se o usuário ficar mais que 1 segundo sem digitar para melhora de performance.
+9- Ao digitar algo no buscar, apenas é realizada a query na api se o usuário ficar mais que 1 segundo sem digitar para melhorar a performance.
 
-10- Utilizei alguns hooks a mais como useMemo em componentes "pais" que para quantidade de itens em tela talvez não fizesse sentido para performance, mas coloquei para demonstrar o conhecimento sobre.
+10- Utilizei alguns hooks a mais como useMemo e useCallback em componentes "pais" que para quantidade de itens em tela talvez não fizesse sentido para performance, mas coloquei para demonstrar o conhecimento sobre.
 
-11- Ao finalizar compra, uma vez que não tem nada no protótipo, eu criei um dialog que abre avisando o usuário dizendo que realizou a compra com número do pedido (gerado randomicamente).
+11- Ao finalizar a compra, uma vez que não tem nada no protótipo, eu criei um dialog que abre avisando o usuário dizendo que realizou a compra com número do pedido (gerado randomicamente).
 
 <img src="./src/assets/finalizar.png"/>
 
-12- Conseguindo com tudo citado atingir uma performance, SEO e acessibilidade e boas práticas bons (todos a cima de 90), sendo que melhores práticas poderia melhorar quando liberar o cors, poque os erros no console afetaram (medido com a extensão do lighthouse já em ambiente de produção na vercel).
+12- Conseguindo com tudo citado atingir performance, boas práticas, acessibilidade e SEO bons (todos a cima de 90), sendo que melhores práticas poderia melhorar quando liberar o cors, porque os erros no console afetaram (medido com a extensão do lighthouse já em ambiente de produção na vercel).
 
 <img src="./src/assets/lighthouse.png"/>
 
